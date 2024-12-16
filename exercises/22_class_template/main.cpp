@@ -33,13 +33,13 @@ struct Tensor4D {
     Tensor4D &operator+=(Tensor4D const &others) {
         // TODO: 实现单向广播的加法
         for (int i = 0; i < shape[0]; i++) {
-            int i1 = others.shape[0] == 1 ? 0 : i;
+            int i1 = (others.shape[0] == 1) ? 0 : i;
             for (int j = 0; j < shape[1]; j++) {
-                int j1 = others.shape[1] == 1 ? 0 : j;
+                int j1 = (others.shape[1] == 1) ? 0 : j;
                 for (int k = 0; k < shape[2]; k++) {
-                    int k1 = others.shape[2] == 1 ? 0 : k;
+                    int k1 = (others.shape[2] == 1) ? 0 : k;
                     for (int l = 0; l < shape[3]; l++) {
-                        int l1 = others.shape[3] == 1 ? 0 : l;
+                        int l1 = (others.shape[3] == 1) ? 0 : l;
                         data[i * shape[1] * shape[2] * shape[3] + j * shape[2] * shape[3] + k * shape[3] + l] += others.data[i1 * others.shape[1] * others.shape[2] * others.shape[3] + j1 * others.shape[2] * others.shape[3] + k1 * others.shape[3] + l1];
                     }
                 }
